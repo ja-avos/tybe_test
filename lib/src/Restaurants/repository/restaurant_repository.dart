@@ -35,6 +35,18 @@ class RestaurantRepository {
   }
 
   Future<List<Restaurant>> getRestaurantsGPS(double lat, double lng) async {
-    return [];
+    try {
+      final restUrl = "$_baseSearchUrl&lat=$lat&lon=$lng&categorySet=7315";
+      final response = await get(Uri.parse(restUrl));
+      final resJson = jsonDecode(response.body);
+      final restaurants = resJson['results'];
+      final restaurantList = restaurants.map<Restaurant>((restaurant) {
+        return Restaurant.fromJson(restaurant);
+      }).toList();
+      return restaurantList;
+    } catch (e) {
+      log("Error getting restaurants: $e");
+      rethrow;
+    }
   }
 }

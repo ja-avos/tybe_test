@@ -40,7 +40,7 @@ class RestaurantsScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.headline5!.copyWith(fontSize: 40),
         ),
         const SizedBox(height: 40),
-        const SearchBox(),
+        SearchBox(),
         Expanded(
           child: BlocBuilder<RestaurantCubit, RestaurantState>(
             builder: (context, state) {

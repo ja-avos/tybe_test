@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Printing login");
     return BlocBuilder<UserCubit, UserState>(builder: (context, state) {
       if (state.authStatus == AuthStatus.authenticated) {
         WidgetsBinding.instance!.addPostFrameCallback((_) {

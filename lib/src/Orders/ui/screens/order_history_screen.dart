@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tyba_test/src/Orders/models/transaction_model.dart';
 import 'package:tyba_test/src/Orders/ui/widgets/transaction_card.dart';
-import 'package:tyba_test/src/Restaurants/ui/widgets/restaurant_card.dart';
-import 'package:tyba_test/src/Restaurants/ui/widgets/search_box.dart';
 
 class OrderHistory extends StatelessWidget {
   OrderHistory({Key? key}) : super(key: key);
