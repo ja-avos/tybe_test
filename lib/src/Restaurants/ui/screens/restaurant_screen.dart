@@ -11,6 +11,12 @@ class RestaurantsScreen extends StatelessWidget {
   const RestaurantsScreen({Key? key}) : super(key: key);
 
   Widget buildResults(BuildContext context, List<Restaurant> restaurants) {
+    if (restaurants.isEmpty) {
+      return Center(
+        child: Text('No hay resultados :(',
+            style: Theme.of(context).textTheme.headline6),
+      );
+    }
     return SingleChildScrollView(
       child: Column(
         children: [

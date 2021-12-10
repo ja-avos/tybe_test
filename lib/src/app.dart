@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tyba_test/src/Orders/bloc/transaction_cubit.dart';
+import 'package:tyba_test/src/Orders/repository/transaction_repository.dart';
 import 'package:tyba_test/src/Restaurants/bloc/restaurant_cubit.dart';
 import 'package:tyba_test/src/Restaurants/repository/restaurant_repository.dart';
 import 'package:tyba_test/src/User/bloc/user_cubit.dart';
@@ -21,6 +23,9 @@ class TybaTestApp extends StatelessWidget {
         RepositoryProvider<RestaurantRepository>(
           create: (context) => RestaurantRepository(),
         ),
+        RepositoryProvider<TransactionRepository>(
+          create: (context) => TransactionRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -32,6 +37,11 @@ class TybaTestApp extends StatelessWidget {
           BlocProvider<RestaurantCubit>(
             create: (context) => RestaurantCubit(
               RepositoryProvider.of<RestaurantRepository>(context),
+            ),
+          ),
+          BlocProvider<TransactionCubit>(
+            create: (context) => TransactionCubit(
+              RepositoryProvider.of<TransactionRepository>(context),
             ),
           ),
         ],
